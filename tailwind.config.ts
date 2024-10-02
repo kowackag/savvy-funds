@@ -1,11 +1,12 @@
-import type { Config } from "tailwindcss";
+/** @type {import('tailwindcss').Config} */
 
-export const config: Config = {
+export default {
   content: [
-    "./src/pages/**/*.{js,ts,jsx,tsx,mdx,css,scss}",
-    "./src/components/**/*.{js,ts,jsx,tsx,mdx,css,scss}",
-    "./src/app/**/*.{js,ts,jsx,tsx,mdx,css,scss}",
-    "./src/**/*.{js,ts,jsx,tsx,mdx,css,scss}",
+    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/layouts/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
     fontSize: {
@@ -60,7 +61,5 @@ export const config: Config = {
       },
     },
   },
-  /* eslint @typescript-eslint/no-require-imports: "off" */
-  plugins: [require("@tailwindcss/typography")],
+  plugins: ["@tailwindcss/typography"],
 };
-export default config;
