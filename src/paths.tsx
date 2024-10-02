@@ -2,6 +2,7 @@ export const Paths = {
   DASHBOARD: "/dashboard",
   PAYMENT: "/payment",
   EXPENSES: "/expenses",
+  GOALS: "/goals",
   INCOME: "/income",
   IRREGULAR_EXPENSES: "/irregular-expenses-fund",
   SAVINGS: "/savings",
