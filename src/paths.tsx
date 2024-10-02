@@ -6,6 +6,8 @@ export const Paths = {
   SAVINGS: "/savings",
   SETTINGS: "/settings",
   NOT_FOUND: "/404",
+  LOGIN: "/auth/login",
+  REGISTER: "/auth/register",
 };
 
 export type PathType = (typeof Paths)[keyof typeof Paths];
