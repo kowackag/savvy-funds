@@ -1,4 +1,4 @@
-export const Goals = ({ className }: { className: string }) => {
+export const Goals = ({ className }: { className?: string }) => {
   return (
     <svg
       fill="#000000"
