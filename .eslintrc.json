@@ -13,7 +13,6 @@
 		"prettier"
 	],
 	"rules": {
-
 		// sort imports
 		"import/order": "error",
 
@@ -72,10 +71,7 @@
 			{ "allowNumber": true, "allowBoolean": true }
 		],
 
-		"@typescript-eslint/no-misused-promises": [
-			"error",
-			{ "checksVoidReturn": false }
-		],
+		"@typescript-eslint/no-misused-promises": ["error", { "checksVoidReturn": false }],
 
 		"no-restricted-imports": [
 			"error",
@@ -84,12 +80,12 @@
 				"message": ""
 			}
 		],
-            "react-refresh/only-export-components": [
-                  "warn",
-                  { 
-                        "allowConstantExport": true
-                  }
-            ]      
+		"react-refresh/only-export-components": [
+			"warn",
+			{
+				"allowConstantExport": true
+			}
+		]
 	},
 	"overrides": [
 		{

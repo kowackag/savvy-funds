@@ -27,7 +27,10 @@ const Icons = {
 export const IconSidebar = ({ title, className }: Props) => {
   return (
     <div
-      className={clx("inline-block sm:rounded-[30px] text-primary", className)}
+      className={clx(
+        "p-3 sm:border border-neutral00 inline-block sm:rounded-[30px] text-primary",
+        className
+      )}
     >
       {title in Icons ? Icons[title] : null}
     </div>
