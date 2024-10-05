@@ -28,7 +28,7 @@ export const IconSidebar = ({ title, className }: Props) => {
   return (
     <div
       className={clx(
-        "p-3 sm:border border-neutral00 inline-block sm:rounded-[30px] text-primary",
+        "p-3 sm:border border-transparent inline-block sm:rounded-[30px] text-primary",
         className
       )}
     >

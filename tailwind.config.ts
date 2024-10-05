@@ -28,6 +28,7 @@ export default {
       xs: ["12px", "1.5"],
     },
     colors: {
+      transparent:'transparent',
       primary: "#20B757",
       secondary01: "#4371E9",
       secondary02: "#FF6161",

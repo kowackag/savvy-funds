@@ -1,11 +1,12 @@
 import { useState } from "react";
+import { NavLink } from "react-router-dom";
 import clx from "classnames";
 
-import { appRoutes } from "../../../routes";
 import { IconSidebar } from "../IconSidebar/IconSidebar";
-import { NavLink } from "react-router-dom";
 import { Logo } from "../../../components/icons/Logo";
 import { ArrowRight } from "../../../components/icons/ArrowRight";
+
+import { appRoutes } from "../../../routes";
 
 export const Sidebar = () => {
   const [isOpen, setISOpen] = useState<boolean>(true);
@@ -35,17 +36,20 @@ export const Sidebar = () => {
             >
               <NavLink
                 to={path}
-                className="flex items-center justify-center sm:justify-start gap-2 "
+                className={({ isActive }) =>
+                  `flex items-center justify-center sm:justify-start gap-2 text-neutral500 ${!isActive ? "" : isOpen ? "bg-primary sm:rounded-full peer [&>*:first-child]:text-neutral10 !text-neutral10 " : "bg-primary sm:bg-transparent [&>*:first-child]:bg-primary [&>*:first-child]:text-neutral10"}`
+                }
               >
                 <IconSidebar
                   title={title}
                   className={clx({
-                    ["border sm:!border-neutral40 sm:bg-primary/5 "]: !isOpen,
+                    ["border sm:!border-neutral40 sm:bg-primary/5 peer:bg-primary"]:
+                      !isOpen,
                   })}
                 />
                 <p
                   className={clx(
-                    "text-m font-medium text-neutral500 hidden sm:block",
+                    "text-m font-medium  hidden sm:block capitalize",
                     {
                       ["sm:hidden"]: !isOpen,
                     }
