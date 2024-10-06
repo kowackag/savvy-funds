@@ -1,15 +1,16 @@
 import clx from "classnames";
 
 import {
+	CurrencySavingsCalc,
 	Dashboard,
 	Goals,
 	Income,
+	IrregularExpensesFunds,
 	Payment,
 	Savings,
 	Settings,
 } from "@components/icons/sidebar";
 import { AppRoute } from "src/routes";
-import { IrregularExpensesFunds } from "@components/icons/sidebar/IrregularExpFounds";
 
 type Props = {
 	title: AppRoute["title"];
@@ -25,6 +26,9 @@ const Icons = {
 		<IrregularExpensesFunds />
 	),
 	savings: <Savings />,
+	"currency savings calculator": (
+		<CurrencySavingsCalc />
+	),
 	settings: <Settings />,
 };
 

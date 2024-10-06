@@ -13,6 +13,7 @@ import { RegisterPage } from "./pages/Register/RegisterPage";
 
 import { Paths, PathType } from "./paths";
 import { Goals } from "./pages/Goals/Goals";
+import { CurrencySavingsCalculator } from "./pages/CurrencySavingsCalculator/CurrencySavingsCalculator";
 
 type TitleRoute =
 	| "dashboard"
@@ -21,6 +22,7 @@ type TitleRoute =
 	| "irregular expenses founds"
 	| "goals"
 	| "savings"
+	| "currency savings calculator"
 	| "settings"
 	| "Login"
 	| "Register";
@@ -80,6 +82,13 @@ export const routes: Route[] = [
 		path: Paths.SAVINGS,
 		element: <Savings />,
 		title: "savings",
+		isProtected: true,
+		layout: "app",
+	},
+	{
+		path: Paths.CURRENCY,
+		element: <CurrencySavingsCalculator />,
+		title: "currency savings calculator",
 		isProtected: true,
 		layout: "app",
 	},

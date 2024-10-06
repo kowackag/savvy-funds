@@ -6,6 +6,7 @@ export const Paths = {
   INCOME: "/income",
   IRREGULAR_EXPENSES: "/irregular-expenses-fund",
   SAVINGS: "/savings",
+  CURRENCY: "/currency",
   SETTINGS: "/settings",
   NOT_FOUND: "/404",
   LOGIN: "/auth/login",
