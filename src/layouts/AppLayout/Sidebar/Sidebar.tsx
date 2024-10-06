@@ -42,7 +42,7 @@ export const Sidebar = () => {
 				</h1>
 			</div>
 
-			<ul className="flex items-stretch justify-stretch border-t border-t-primary/10 sm:flex-col sm:gap-4">
+			<ul className="flex flex-wrap items-start justify-stretch border-t border-t-primary/10 sm:flex-col sm:items-stretch sm:gap-4">
 				<hr className="hidden border-dashed text-primary opacity-40 sm:inline-block"></hr>
 				{appRoutes
 					.filter(
@@ -51,7 +51,7 @@ export const Sidebar = () => {
 					.map(({ path, title }) => (
 						<li
 							key={path}
-							className="flex-grow hover:bg-secondary01/5 sm:hover:bg-neutral00"
+							className="hover:bg-secondary01/5 sm:hover:bg-neutral00"
 						>
 							<NavLink
 								to={path}
@@ -59,7 +59,7 @@ export const Sidebar = () => {
 									clx(
 										`flex items-center justify-center gap-2 text-neutral500 sm:justify-start`,
 										{
-											["bg-primary !text-neutral10 sm:rounded-full [&>*:first-child]:text-neutral10"]:
+											["flex-grow bg-primary !text-neutral10 sm:rounded-full [&>*:first-child]:text-neutral10"]:
 												isActive && isOpen,
 											["bg-primary !text-neutral10  sm:bg-transparent [&>*:first-child]:bg-primary [&>*:first-child]:text-neutral10"]:
 												isActive && !isOpen,
