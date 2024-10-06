@@ -4,22 +4,41 @@
     "target": "ES2022",
     "useDefineForClassFields": true,
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
     "skipLibCheck": true,
     "types": [],
     /* Bundler mode */
-    "moduleResolution": "bundler",
+    "moduleResolution": "node",
     "allowImportingTsExtensions": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
-    // "baseUrl": "src",
+    "baseUrl": "./",
+    "paths": {
+      "@/*": ["/src/*"],
+      "@components/*": ["src/components/*"],
+      // "@hooks/*": ["src/utils/hooks/*"],
+      "@icons/*": ["assets/icons/*"],
+      "@images/*": ["assets/img/*"],
+      "@services/*": ["services/*"]
+    },
     /* Linting */
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src"],
-  "exclude": ["node_modules"]
+  "include": [
+    "./src/**/*",
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "src/**/*.png",
+    "src/**/*.jpg",
+    "src/**/*.mov",
+    "src/**/*.webm",
+    "src/**/*.svg"
+  ],
+  "exclude": ["node_modules"],
+  "references": [{ "path": "./tsconfig.node.json" }]
 }

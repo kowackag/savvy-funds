@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import { appRoutes, authRoutes } from "./routes";
 import { AppLayout } from "./layouts/AppLayout/AppLayout";
-import { AuthLayout } from "./AuthLayout";
+import { AuthLayout } from "./layouts/AuthLayout/AuthLayout";
 
 function App() {
   return (
