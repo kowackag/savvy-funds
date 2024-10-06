@@ -4,7 +4,7 @@ import { Dashboard } from "./pages/Dashboard/Dashboard";
 // import { Expenses } from "./pages/Expenses/Expenses";
 import { Payment } from "./pages/Payment/Payment";
 import { Income } from "./pages/Income/Income";
-// import { IrregularExpensesFund } from "./pages/IrregularExpensesFund/IrregularExpensesFund";
+import { IrregularExpensesFund } from "./pages/IrregularExpensesFund/IrregularExpensesFund";
 // import { NotFound } from "./pages/NotFound/NotFound";
 import { Savings } from "./pages/Savings/Savings";
 import { Settings } from "./pages/Settings/Settings";
@@ -18,6 +18,7 @@ type TitleRoute =
 	| "dashboard"
 	| "income"
 	| "payment"
+	| "irregular expenses founds"
 	| "goals"
 	| "savings"
 	| "settings"
@@ -33,7 +34,10 @@ export type Route = {
 	layout: "app" | "auth";
 };
 
-export type AppRoute = Extract<Route, { layout: "app" }>;
+export type AppRoute = Extract<
+	Route,
+	{ layout: "app" }
+>;
 
 export const routes: Route[] = [
 	{
@@ -58,12 +62,13 @@ export const routes: Route[] = [
 		isProtected: true,
 		layout: "app",
 	},
-	// {
-	//   path: Paths.IRREGULAR_EXPENSES,
-	//   element: <IrregularExpensesFund />,
-	//   title: "",
-	//   isProtected: true,
-	// },
+	{
+		path: Paths.IRREGULAR_EXPENSES,
+		element: <IrregularExpensesFund />,
+		title: "irregular expenses founds",
+		isProtected: true,
+		layout: "app",
+	},
 	{
 		path: Paths.GOALS,
 		element: <Goals />,
@@ -107,10 +112,19 @@ export const routes: Route[] = [
 	},
 ];
 
-const isAppRoute = (route: Route): route is AppRoute => route.layout === "app";
+const isAppRoute = (
+	route: Route,
+): route is AppRoute => route.layout === "app";
 
-export const appRoutes: AppRoute[] = routes.filter(isAppRoute);
-export const authRoutes = routes.filter(({ layout }) => layout === "auth");
+export const appRoutes: AppRoute[] =
+	routes.filter(isAppRoute);
+export const authRoutes = routes.filter(
+	({ layout }) => layout === "auth",
+);
 
-export const protectedRoutes = routes.filter(({ isProtected }) => isProtected);
-export const unprotectedRoutes = routes.filter(({ isProtected }) => !isProtected);
+export const protectedRoutes = routes.filter(
+	({ isProtected }) => isProtected,
+);
+export const unprotectedRoutes = routes.filter(
+	({ isProtected }) => !isProtected,
+);

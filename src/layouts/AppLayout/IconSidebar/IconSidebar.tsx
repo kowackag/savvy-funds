@@ -9,6 +9,7 @@ import {
 	Settings,
 } from "@components/icons/sidebar";
 import { AppRoute } from "src/routes";
+import { IrregularExpensesFunds } from "@components/icons/sidebar/IrregularExpFounds";
 
 type Props = {
 	title: AppRoute["title"];
@@ -20,6 +21,9 @@ const Icons = {
 	goals: <Goals />,
 	income: <Income />,
 	payment: <Payment />,
+	"irregular expenses founds": (
+		<IrregularExpensesFunds />
+	),
 	savings: <Savings />,
 	settings: <Settings />,
 };

@@ -14,7 +14,7 @@ export const Sidebar = () => {
 	return (
 		<div
 			className={clx(
-				"relative sm:px-8 sm:py-6 ",
+				"relative sm:px-6 sm:py-6 md:px-8 ",
 				{ ["sm:w-72"]: isOpen },
 			)}
 		>
@@ -22,7 +22,7 @@ export const Sidebar = () => {
 				onClick={() =>
 					setISOpen((state) => !state)
 				}
-				className="absolute -right-6 top-8 hidden h-10 w-6 rounded-br-2xl rounded-tr-2xl bg-primary text-neutral10 sm:flex sm:items-center sm:justify-center "
+				className="absolute -right-6 top-[18px] hidden h-12 w-6 rounded-br-2xl rounded-tr-2xl bg-primary text-neutral10 sm:flex sm:items-center sm:justify-center "
 			>
 				<ArrowRight
 					className={`${isOpen ? "rotate-180" : ""}`}
