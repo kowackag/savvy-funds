@@ -8,15 +8,14 @@ import { collection, getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: process.env.FIREBASE_API_KEY,
-  authDomain: "savvy-funds.firebaseapp.com",
-  projectId: "savvy-funds",
-  storageBucket: "savvy-funds.appspot.com",
-  messagingSenderId: "623380663142",
-  appId: "1:623380663142:web:c6252b25473d954f1216a7",
-  measurementId: "G-W7SSGNVEB0"
+  authDomain: process.env.FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.REACT_APP_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_ID,
 };
 
 // Initialize Firebase
 const firebaseApp = initializeApp(firebaseConfig);
 export const db = getFirestore(firebaseApp);
-export const users = collection(db, 'users');
+export const users = collection(db, "users");
