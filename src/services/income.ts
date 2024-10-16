@@ -1,5 +1,6 @@
-import { collection, getDocs } from "firebase/firestore";
-import { db } from "../config/firebase";
+import { firebaseDAL } from "./DAL/firebase";
+
+//getAll, get, update, remove, add
 
 export type IncomeType = {
   id: string;
@@ -9,28 +10,14 @@ export type IncomeType = {
   data: Date;
 };
 
-const getAll = async (): Promise<{
-  isSuccess: boolean;
-  income: IncomeType[];
-}> => {
-  try {
-    const incomeCollection = collection(db, "income");
-    const querySnapshot = await getDocs(incomeCollection);
-    const income = querySnapshot.docs.map((item) => {
-      return { ...item.data(), id: item.id };
-    });
-    return {
-      isSuccess: true,
-      income: income as IncomeType[],
-    };
-  } catch (error) {
-    return {
-      isSuccess: false,
-      income: [],
-    };
-  }
+
+
+const getAll = async () => {
+   return firebaseDAL.getAll<{isSuccess: boolean}>('income')
 };
 
-const addIncome = async () => {};
+const add = async () => {
+  throw new Error("Function not implemented.");
+};
 
-export const incomeServices = { getAll, addIncome };
+export const incomeServices = { getAll, add };

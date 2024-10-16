@@ -1,8 +1,11 @@
 import React from 'react'
 import { Routes, Route } from "react-router-dom";
 import { routes } from "./routes";
+import { incomeServices } from './services/income';
 
 function App() {
+
+  incomeServices.getAll().then((res) => console.log(res))
 
   return (
     <Routes>
