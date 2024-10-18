@@ -1,8 +1,4 @@
-export const Dashboard = ({
-	className,
-}: {
-	className?: string;
-}) => {
+export const Dashboard = ({ className }: { className?: string }) => {
 	return (
 		<svg
 			width="28"

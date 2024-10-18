@@ -21,7 +21,7 @@
       // "@hooks/*": ["src/utils/hooks/*"],
       "@icons/*": ["assets/icons/*"],
       "@images/*": ["assets/img/*"],
-      "@services/*": ["services/*"]
+      "@services/*": ["src/services/*"]
     },
     /* Linting */
     "strict": true,
@@ -40,5 +40,5 @@
     "src/**/*.svg"
   ],
   "exclude": ["node_modules"],
-  "references": [{ "path": "./tsconfig.node.json" }]
+  "references": []
 }
