@@ -1,12 +1,21 @@
 import { Routes, Route } from "react-router-dom";
-import { routes } from "./routes";
+import { appRoutes, authRoutes } from "./routes";
+import { AppLayout } from "./layouts/AppLayout/AppLayout";
+import { AuthLayout } from "./layouts/AuthLayout/AuthLayout";
 
 function App() {
   return (
     <Routes>
-      {routes.map(({ path, element }) => (
-        <Route key={path} path={path} element={element} />
-      ))}
+      <Route element={<AppLayout />}>
+        {appRoutes.map(({ path, element }) => (
+          <Route key={path} path={path} element={element} />
+        ))}
+      </Route>
+      <Route path="/auth" element={<AuthLayout />}>
+        {authRoutes.map(({ path, element }) => (
+          <Route key={path} path={path} element={element} />
+        ))}
+      </Route>
     </Routes>
   );
 }
