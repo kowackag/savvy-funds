@@ -22,20 +22,13 @@ const Icons = {
 	goals: <Goals />,
 	income: <Income />,
 	payment: <Payment />,
-	"irregular expenses founds": (
-		<IrregularExpensesFunds />
-	),
+	"irregular expenses founds": <IrregularExpensesFunds />,
 	savings: <Savings />,
-	"currency savings calculator": (
-		<CurrencySavingsCalc />
-	),
+	"currency savings calculator": <CurrencySavingsCalc />,
 	settings: <Settings />,
 };
 
-export const IconSidebar = ({
-	title,
-	className,
-}: Props) => {
+export const IconSidebar = ({ title, className }: Props) => {
 	return (
 		<div
 			className={clx(

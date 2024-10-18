@@ -15,12 +15,9 @@ export const IrregularExpensesFunds = ({
 			transform="matrix(-1, 0, 0, 1, 0, 0)"
 			stroke="currentColor"
 			strokeWidth="4.4196"
-                  className={className}
+			className={className}
 		>
-			<g
-				id="SVGRepo_bgCarrier"
-				strokeWidth="0"
-			></g>
+			<g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
 			<g
 				id="SVGRepo_tracerCarrier"
 				strokeLinecap="round"

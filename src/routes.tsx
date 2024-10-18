@@ -36,10 +36,7 @@ export type Route = {
 	layout: "app" | "auth";
 };
 
-export type AppRoute = Extract<
-	Route,
-	{ layout: "app" }
->;
+export type AppRoute = Extract<Route, { layout: "app" }>;
 
 export const routes: Route[] = [
 	{
@@ -121,19 +118,12 @@ export const routes: Route[] = [
 	},
 ];
 
-const isAppRoute = (
-	route: Route,
-): route is AppRoute => route.layout === "app";
+const isAppRoute = (route: Route): route is AppRoute => route.layout === "app";
 
-export const appRoutes: AppRoute[] =
-	routes.filter(isAppRoute);
-export const authRoutes = routes.filter(
-	({ layout }) => layout === "auth",
-);
+export const appRoutes: AppRoute[] = routes.filter(isAppRoute);
+export const authRoutes = routes.filter(({ layout }) => layout === "auth");
 
-export const protectedRoutes = routes.filter(
-	({ isProtected }) => isProtected,
-);
+export const protectedRoutes = routes.filter(({ isProtected }) => isProtected);
 export const unprotectedRoutes = routes.filter(
 	({ isProtected }) => !isProtected,
 );

@@ -1,8 +1,4 @@
-export const Goals = ({
-	className,
-}: {
-	className?: string;
-}) => {
+export const Goals = ({ className }: { className?: string }) => {
 	return (
 		<svg
 			fill="currentColor"
@@ -24,10 +20,7 @@ export const Goals = ({
 					strokeWidth="0"
 				></rect>
 			</g>
-			<g
-				strokeLinecap="round"
-				strokeLinejoin="round"
-			></g>
+			<g strokeLinecap="round" strokeLinejoin="round"></g>
 			<g>
 				<g>
 					<g>
