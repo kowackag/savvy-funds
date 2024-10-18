@@ -5,7 +5,9 @@ export const Topbar = () => {
 				<span className="flex h-12 w-12 items-center justify-center rounded-full border border-neutral40 bg-neutral20 text-xs tracking-tight">
 					48x48
 				</span>
-				<p className="text-l font-medium text-neutral700">Jan Kot</p>
+				<p className="text-l font-medium text-neutral700">
+					Jan Kot
+				</p>
 			</div>
 		</div>
 	);

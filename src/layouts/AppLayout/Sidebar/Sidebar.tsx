@@ -2,25 +2,31 @@ import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import clx from "classnames";
 
+import { IconSidebar } from "../IconSidebar/IconSidebar";
 import { ArrowRight } from "@components/icons/ArrowRight";
 import { Logo } from "@components/icons/Logo";
 
 import { appRoutes } from "./../../../routes";
-import { IconSidebar } from "../IconSidebar/IconSidebar";
 
 export const Sidebar = () => {
-	const [isOpen, setISOpen] = useState<boolean>(true);
+	const [isOpen, setISOpen] =
+		useState<boolean>(true);
 	return (
 		<div
-			className={clx("relative sm:px-6 sm:py-6 md:px-8 ", {
-				["sm:w-72"]: isOpen,
-			})}
+			className={clx(
+				"relative sm:px-6 sm:py-6 md:px-8 ",
+				{ ["sm:w-72"]: isOpen },
+			)}
 		>
 			<button
-				onClick={() => setISOpen((state) => !state)}
+				onClick={() =>
+					setISOpen((state) => !state)
+				}
 				className="absolute -right-6 top-[18px] hidden h-12 w-6 rounded-br-2xl rounded-tr-2xl bg-primary text-neutral10 sm:flex sm:items-center sm:justify-center "
 			>
-				<ArrowRight className={`${isOpen ? "rotate-180" : ""}`} />
+				<ArrowRight
+					className={`${isOpen ? "rotate-180" : ""}`}
+				/>
 			</button>
 			<div className="hidden px-3 text-headline-4 sm:flex sm:items-center sm:gap-3 sm:pb-6">
 				<Logo />
@@ -29,14 +35,19 @@ export const Sidebar = () => {
 						["hidden"]: !isOpen,
 					})}
 				>
-					Savvy <span className="text-neutral700">Funds</span>
+					Savvy
+					<span className="text-neutral700">
+						Funds
+					</span>
 				</h1>
 			</div>
 
 			<ul className="flex flex-wrap items-start justify-stretch border-t border-t-primary/10 sm:flex-col sm:items-stretch sm:gap-4">
 				<hr className="hidden border-dashed text-primary opacity-40 sm:inline-block"></hr>
 				{appRoutes
-					.filter(({ layout }) => layout === "app")
+					.filter(
+						({ layout }) => layout === "app",
+					)
 					.map(({ path, title }) => (
 						<li
 							key={path}
@@ -59,7 +70,8 @@ export const Sidebar = () => {
 								<IconSidebar
 									title={title}
 									className={clx({
-										["border sm:!border-neutral40 sm:bg-primary/5"]: !isOpen,
+										["border sm:!border-neutral40 sm:bg-primary/5"]:
+											!isOpen,
 									})}
 								/>
 								<p

@@ -1,10 +1,17 @@
-<svg
+export const Goals = ({
+	className,
+}: {
+	className?: string;
+}) => {
+	return (
+		<svg
 			fill="currentColor"
 			version="1.1"
 			xmlns="http://www.w3.org/2000/svg"
 			width="28"
 			height="28"
 			viewBox="-41.2 -41.2 494.40 494.40"
+			className={className}
 		>
 			<g strokeWidth="0">
 				<rect
@@ -33,4 +40,6 @@
 					</g>
 				</g>
 			</g>
-</svg>
+		</svg>
+	);
+};
