@@ -1,4 +1,3 @@
-import React from 'react'
 import { Routes, Route } from "react-router-dom";
 import { appRoutes, authRoutes } from "./routes";
 import { AppLayout } from "./layouts/AppLayout/AppLayout";
