@@ -1,8 +1,4 @@
-export const Savings = ({
-	className,
-}: {
-	className?: string;
-}) => {
+export const Savings = ({ className }: { className?: string }) => {
 	return (
 		<svg
 			width="28"

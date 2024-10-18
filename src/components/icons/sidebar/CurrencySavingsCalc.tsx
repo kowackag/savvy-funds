@@ -1,8 +1,4 @@
-export const CurrencySavingsCalc = ({
-	className,
-}: {
-	className?: string;
-}) => {
+export const CurrencySavingsCalc = ({ className }: { className?: string }) => {
 	return (
 		<svg
 			fill="currentColor"
@@ -17,10 +13,7 @@ export const CurrencySavingsCalc = ({
 			strokeWidth="4.5759479999999995"
 			className={className}
 		>
-			<g
-				id="SVGRepo_bgCarrier"
-				strokeWidth="0"
-			></g>
+			<g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
 			<g
 				id="SVGRepo_tracerCarrier"
 				strokeLinecap="round"

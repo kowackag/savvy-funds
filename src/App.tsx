@@ -4,6 +4,7 @@ import { AppLayout } from "./layouts/AppLayout/AppLayout";
 import { AuthLayout } from "./layouts/AuthLayout/AuthLayout";
 
 function App() {
+
   return (
     <Routes>
       <Route element={<AppLayout />}>
