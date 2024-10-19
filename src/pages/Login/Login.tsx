@@ -14,10 +14,12 @@ export const LoginPage = () => {
 		register,
 		handleSubmit,
 		formState: { errors },
+    reset
 	} = useForm<FormInput>({ resolver: zodResolver(schema) });
 
 	const onSubmit: SubmitHandler<FormInput> = (data) => {
 		console.log(data);
+    reset()
 	};
 
 	return (
