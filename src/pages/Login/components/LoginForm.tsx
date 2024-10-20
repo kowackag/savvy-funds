@@ -46,6 +46,7 @@ export const LoginForm = ({ register, onSubmit, errors }: Props) => {
 					label="Enter Your Password"
 					error={errors?.password?.message}
 					inputRef={passwordInputRef}
+					type="password"
 				/>
 			</div>
 			<Button
