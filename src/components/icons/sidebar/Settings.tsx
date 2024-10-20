@@ -1,8 +1,4 @@
-export const Settings = ({
-	className,
-}: {
-	className?: string;
-}) => {
+export const Settings = ({ className }: { className?: string }) => {
 	return (
 		<svg
 			width="28"
