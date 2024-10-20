@@ -29,7 +29,7 @@ export const RegisterForm = ({ register, onSubmit, errors }: Props) => {
 		name: lastNameInputName,
 		onChange: onLastNameChange,
 		ref: lastNameInputRef,
-	} = register("password");
+	} = register("lastName");
 	const {
 		name: emailInputName,
 		onChange: onEmailChange,
