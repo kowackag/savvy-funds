@@ -18,7 +18,7 @@
 		"paths": {
 			"@/*": ["/src/*"],
 			"@components/*": ["src/components/*"],
-			// "@hooks/*": ["src/utils/hooks/*"],
+			"@config/*": ["src/config/*"],
 			"@icons/*": ["src/assets/icons/*"],
 			"@images/*": ["src/assets/images/*"],
 			"@services/*": ["src/services/*"]
