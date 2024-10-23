@@ -1,15 +1,11 @@
 import { ChangeEventHandler, Ref } from "react";
 import clx from "classnames";
 
-type Props = {
+type Props = InputHTMLAttributes<HTMLInputElement> & {
 	label: string;
 	name: string;
-	type?: HTMLInputElement["type"];
-	value?: string | number;
 	error?: string;
-	onChange: ChangeEventHandler;
 	inputRef: Ref<HTMLInputElement>;
-	className?: string;
 };
 
 export const InputField = ({
