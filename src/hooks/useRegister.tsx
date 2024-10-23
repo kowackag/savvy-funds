@@ -16,7 +16,7 @@ type UserData = {
 
 export const useRegister = () => {
 	const [error, setError] = useState<string | null>(null);
-	const [isPending, setIsPending] = useState<boolean>(true);
+	const [isPending, setIsPending] = useState<boolean>(false);
 
 	const auth = getAuth(firebaseApp);
 	const registerUser = async (data: UserData) => {
@@ -30,10 +30,9 @@ export const useRegister = () => {
 			);
 			if (!res) throw new Error("Some error during register.");
 
-			updateProfile(res.user, {
+			await updateProfile(res.user, {
 				displayName: `${data.firstName} ${data.lastName}`,
 			});
-			setIsPending(false);
 			setError(null);
 		} catch (error) {
 			if (error instanceof FirebaseError) {
@@ -45,8 +44,9 @@ export const useRegister = () => {
 					return setError("The password provided is too weak.");
 				}
 				setError("Some error during register. Try again later.");
-				setIsPending(false);
 			}
+		} finally {
+			setIsPending(false);
 		}
 	};
 	return {
