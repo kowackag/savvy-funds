@@ -1,11 +1,13 @@
+import { useContext, useState } from "react";
 import { FirebaseError } from "firebase/app";
 import {
 	createUserWithEmailAndPassword,
 	getAuth,
 	updateProfile,
 } from "firebase/auth";
-import { useState } from "react";
+
 import { firebaseApp } from "./../config/firebase";
+import { AuthContext } from "../../src/context/AuthContext";
 
 type UserData = {
 	firstName: string;
@@ -17,6 +19,7 @@ type UserData = {
 export const useRegister = () => {
 	const [error, setError] = useState<string | null>(null);
 	const [isPending, setIsPending] = useState<boolean>(false);
+	const context = useContext(AuthContext);
 
 	const auth = getAuth(firebaseApp);
 	const registerUser = async (data: UserData) => {
@@ -33,6 +36,10 @@ export const useRegister = () => {
 			await updateProfile(res.user, {
 				displayName: `${data.firstName} ${data.lastName}`,
 			});
+
+			if (context) {
+				context?.dispatch({ type: "LOGIN", payload: res.user });
+			}
 			setError(null);
 		} catch (error) {
 			if (error instanceof FirebaseError) {
