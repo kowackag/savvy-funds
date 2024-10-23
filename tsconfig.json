@@ -16,12 +16,12 @@
 		"jsx": "react-jsx",
 		"baseUrl": "./",
 		"paths": {
-			"@/*": ["/src/*"],
+			"@src/*": ["/src/*"],
 			"@components/*": ["src/components/*"],
-			"@config/*": ["src/config/*"],
 			"@icons/*": ["src/assets/icons/*"],
 			"@images/*": ["src/assets/images/*"],
-			"@services/*": ["src/services/*"]
+			"@services/*": ["src/services/*"],
+			"@hooks/*": ["src/hooks/*"],
 		},
 		/* Linting */
 		"strict": true,

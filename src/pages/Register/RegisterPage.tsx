@@ -1,18 +1,9 @@
-import { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useNavigate } from "react-router-dom";
-import { FirebaseError } from "firebase/app";
-import {
-	getAuth,
-	createUserWithEmailAndPassword,
-	updateProfile,
-} from "firebase/auth";
 
 import { RegisterForm } from "./components/RegisterForm";
 
 import { schema } from "./schema";
-import { firebaseApp } from "./../../config/firebase";
 import { useRegister } from "@hooks/useRegister";
 
 type FormInput = {
@@ -23,13 +14,11 @@ type FormInput = {
 };
 
 export const RegisterPage = () => {
-	// const [error, setError] = useState<string | null>(null);
 	const { error, isPending, registerUser } = useRegister();
 	const {
 		register,
 		handleSubmit,
 		formState: { errors },
-		reset,
 	} = useForm<FormInput>({ resolver: zodResolver(schema) });
 
 	const onSubmit: SubmitHandler<FormInput> = async (data) => {
