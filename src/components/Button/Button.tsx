@@ -12,13 +12,9 @@ export enum ButtonSize {
 	Large = "large",
 }
 
-type Props = {
+type Props = ButtonHTMLAttributes<HTMLButtonElement> & {
 	variant: ButtonVariant;
-	className?: string;
-	children: ReactNode;
 	size?: ButtonSize;
-	type?: HTMLButtonElement["type"];
-	disabled?: boolean;
 };
 
 export const Button = ({
