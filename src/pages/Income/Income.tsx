@@ -21,9 +21,6 @@ export const Income = () => {
 	return (
 		<section>
 			<h1>Income</h1>
-			{allIncome.map((el) => (
-				<p key={el.id}>{`${el.source}: ${el.value} ${el.currency}`}</p>
-			))}
 		</section>
 	);
 };
