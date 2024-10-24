@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { IncomeType, incomeServices } from "@services/income";
+import { IncomeType, incomeServices } from "../../services/income";
 
 export const Income = () => {
 	const [allIncome, setAllIncome] = useState<IncomeType[]>([]);
@@ -21,9 +21,6 @@ export const Income = () => {
 	return (
 		<section>
 			<h1>Income</h1>
-			{allIncome.map((el) => (
-				<p key={el.id}>{`${el.source}: ${el.value} ${el.currency}`}</p>
-			))}
 		</section>
 	);
 };

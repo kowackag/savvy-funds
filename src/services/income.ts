@@ -12,7 +12,7 @@ const get = async () => {
 	throw new Error("Function not implemented.");
 };
 
-const getAll = async (): Promise<IncomeType[]> => {
+const getAll = async () => {
 	const incomeCollection = collection(db, "income");
 	const querySnapshot = await getDocs(incomeCollection);
 	return querySnapshot.docs.map(
@@ -20,8 +20,8 @@ const getAll = async (): Promise<IncomeType[]> => {
 			({
 				...item.data(),
 				id: item.id,
-			}) as IncomeType,
-	);
+			}),
+	) as IncomeType[];
 };
 
 const add = async () => {
