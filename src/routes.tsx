@@ -19,7 +19,7 @@ type TitleRoute =
 	| "dashboard"
 	| "income"
 	| "payment"
-	| "irregular expenses founds"
+	| "irregular expenses funds"
 	| "goals"
 	| "savings"
 	| "currency savings calculator"
@@ -45,6 +45,7 @@ export const routes: Route[] = [
 		title: "dashboard",
 		isProtected: true,
 		layout: "app",
+		icon: "dashboard",
 	},
 	{
 		path: Paths.INCOME,
@@ -52,6 +53,7 @@ export const routes: Route[] = [
 		title: "income",
 		isProtected: true,
 		layout: "app",
+		icon: "income",
 	},
 	// { path: Paths.EXPENSES, element: <Expenses />, title: "Expenses", isProtected: true },
 	{
@@ -60,13 +62,15 @@ export const routes: Route[] = [
 		title: "payment",
 		isProtected: true,
 		layout: "app",
+		icon: "payment",
 	},
 	{
 		path: Paths.IRREGULAR_EXPENSES,
 		element: <IrregularExpensesFund />,
-		title: "irregular expenses founds",
+		title: "irregular expenses funds",
 		isProtected: true,
 		layout: "app",
+		icon: "irregularExpensesFunds",
 	},
 	{
 		path: Paths.GOALS,
@@ -74,6 +78,7 @@ export const routes: Route[] = [
 		title: "goals",
 		isProtected: true,
 		layout: "app",
+		icon: "goals",
 	},
 	{
 		path: Paths.SAVINGS,
@@ -81,6 +86,7 @@ export const routes: Route[] = [
 		title: "savings",
 		isProtected: true,
 		layout: "app",
+		icon: "savings",
 	},
 	{
 		path: Paths.CURRENCY,
@@ -88,6 +94,7 @@ export const routes: Route[] = [
 		title: "currency savings calculator",
 		isProtected: true,
 		layout: "app",
+		icon: "currencySavingsCalculator",
 	},
 	{
 		path: Paths.SETTINGS,
@@ -95,6 +102,7 @@ export const routes: Route[] = [
 		title: "settings",
 		isProtected: true,
 		layout: "app",
+		icon: "settings",
 	},
 	// {
 	//   path: Paths.NOT_FOUND,

@@ -37,7 +37,7 @@ export const Sidebar = () => {
 				<hr className="hidden border-dashed text-primary opacity-40 sm:inline-block"></hr>
 				{appRoutes
 					.filter(({ layout }) => layout === "app")
-					.map(({ path, title }) => (
+					.map(({ path, icon, title }) => (
 						<li
 							key={path}
 							className="hover:bg-secondary01/5 sm:hover:bg-neutral00"
@@ -57,7 +57,7 @@ export const Sidebar = () => {
 								}
 							>
 								<IconSidebar
-									title={title}
+									name={icon}
 									className={clx({
 										["border sm:!border-neutral40 sm:bg-primary/5"]: !isOpen,
 									})}

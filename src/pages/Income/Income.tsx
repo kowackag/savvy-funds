@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { IncomeType, incomeServices } from "@services/income";
+import { IncomeType, incomeServices } from "../../services/income";
 
 export const Income = () => {
 	const [allIncome, setAllIncome] = useState<IncomeType[]>([]);
