@@ -1,8 +1,4 @@
-export const Payment = ({
-	className,
-}: {
-	className?: string;
-}) => {
+export const Payment = ({ className }: { className?: string }) => {
 	return (
 		<svg
 			width="28"

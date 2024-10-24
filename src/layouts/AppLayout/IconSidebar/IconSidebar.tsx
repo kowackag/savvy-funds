@@ -13,7 +13,7 @@ import {
 import { AppRoute } from "src/routes";
 
 type Props = {
-	title: AppRoute["title"];
+	name: AppRoute["icon"];
 	className?: string;
 };
 
@@ -22,20 +22,13 @@ const Icons = {
 	goals: <Goals />,
 	income: <Income />,
 	payment: <Payment />,
-	"irregular expenses founds": (
-		<IrregularExpensesFunds />
-	),
+	irregularExpensesFunds: <IrregularExpensesFunds />,
 	savings: <Savings />,
-	"currency savings calculator": (
-		<CurrencySavingsCalc />
-	),
+	currencySavingsCalculator: <CurrencySavingsCalc />,
 	settings: <Settings />,
 };
 
-export const IconSidebar = ({
-	title,
-	className,
-}: Props) => {
+export const IconSidebar = ({ name, className }: Props) => {
 	return (
 		<div
 			className={clx(
@@ -43,7 +36,7 @@ export const IconSidebar = ({
 				className,
 			)}
 		>
-			{title in Icons ? Icons[title] : null}
+			{name in Icons ? Icons[name] : null}
 		</div>
 	);
 };

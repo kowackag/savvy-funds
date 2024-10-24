@@ -1,7 +1,26 @@
+import { useEffect, useState } from "react";
+import { IncomeType, incomeServices } from "../../services/income";
+
 export const Income = () => {
-  return (
-    <section>
-      <h1>Income</h1>
-    </section>
-  );
+	const [allIncome, setAllIncome] = useState<IncomeType[]>([]);
+	const [error, setError] = useState<string | null>(null);
+
+	useEffect(() => {
+		const getIncome = async () => {
+			try {
+				const income = await incomeServices.getAll();
+				setAllIncome(income);
+			} catch (e) {
+				setError("Some err during fetching data");
+			}
+		};
+		getIncome();
+	}, []);
+
+	if (error) return <p>{error}</p>;
+	return (
+		<section>
+			<h1>Income</h1>
+		</section>
+	);
 };
