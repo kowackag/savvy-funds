@@ -1,44 +1,44 @@
 {
-  "schema": "https://json.schemastore.org/tsconfig",
-  "compilerOptions": {
-    "target": "ES2022",
-    "useDefineForClassFields": true,
-    "lib": ["ES2020", "DOM", "DOM.Iterable"],
-    "module": "ESNext",
-    "skipLibCheck": true,
-    "types": [],
-    /* Bundler mode */
-    "moduleResolution": "node",
-    "allowImportingTsExtensions": true,
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "noEmit": true,
-    "jsx": "react-jsx",
-    "baseUrl": "./",
-    "paths": {
-      "@/*": ["/src/*"],
-      "@components/*": ["src/components/*"],
-      // "@hooks/*": ["src/utils/hooks/*"],
-      "@icons/*": ["assets/icons/*"],
-      "@images/*": ["assets/img/*"],
-      "@services/*": ["src/services/*"]
-    },
-    /* Linting */
-    "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
-  },
-  "include": [
-    "./src/**/*",
-    "src/**/*.ts",
-    "src/**/*.tsx",
-    "src/**/*.png",
-    "src/**/*.jpg",
-    "src/**/*.mov",
-    "src/**/*.webm",
-    "src/**/*.svg"
-  ],
-  "exclude": ["node_modules"],
-  "references": []
+	"schema": "https://json.schemastore.org/tsconfig",
+	"compilerOptions": {
+		"target": "ES2022",
+		"useDefineForClassFields": true,
+		"lib": ["ES2020", "DOM", "DOM.Iterable"],
+		"module": "ESNext",
+		"skipLibCheck": true,
+		"types": [],
+		/* Bundler mode */
+		"moduleResolution": "node",
+		"allowImportingTsExtensions": true,
+		"resolveJsonModule": true,
+		"isolatedModules": true,
+		"noEmit": true,
+		"jsx": "react-jsx",
+		"baseUrl": "./",
+		"paths": {
+			"@/*": ["/src/*"],
+			"@components/*": ["src/components/*"],
+			// "@hooks/*": ["src/utils/hooks/*"],
+			"@icons/*": ["src/assets/icons/*"],
+			"@images/*": ["src/assets/images/*"],
+			"@services/*": ["src/services/*"]
+		},
+		/* Linting */
+		"strict": true,
+		"noUnusedLocals": true,
+		"noUnusedParameters": true,
+		"noFallthroughCasesInSwitch": true
+	},
+	"include": [
+		"./src/**/*",
+		"src/**/*.ts",
+		"src/**/*.tsx",
+		"src/**/*.png",
+		"src/**/*.jpg",
+		"src/**/*.mov",
+		"src/**/*.webm",
+		"src/**/*.svg"
+	],
+	"exclude": ["node_modules"],
+	"references": []
 }
