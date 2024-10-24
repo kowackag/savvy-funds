@@ -1,5 +1,5 @@
 import clx from "classnames";
-import { ReactNode } from "react";
+import { ButtonHTMLAttributes } from "react";
 
 export enum ButtonVariant {
 	Primary = "primary",
@@ -12,13 +12,9 @@ export enum ButtonSize {
 	Large = "large",
 }
 
-type Props = {
+type Props = ButtonHTMLAttributes<HTMLButtonElement> & {
 	variant: ButtonVariant;
-	className?: string;
-	children: ReactNode;
 	size?: ButtonSize;
-	type?: HTMLButtonElement["type"];
-	disabled?: boolean;
 };
 
 export const Button = ({
@@ -27,19 +23,21 @@ export const Button = ({
 	children,
 	size,
 	type,
-	disabled=false,
+	disabled = false,
+	...props
 }: Props) => {
 	return (
 		<button
+			{...props}
 			className={clx(
 				"align-center inline-flex justify-center gap-3 rounded-full",
 				className,
 				{
 					"bg-primary text-neutral00": variant === "primary",
 					"border-primary bg-neutral00 text-primary": variant === "secondary",
-					"py-3 px-6": size === "small",
-					"py-4 px-8": size === "medium",
-					"py-5 px-10": size === "large",
+					"px-6 py-3": size === "small",
+					"px-8 py-4": size === "medium",
+					"px-10 py-5": size === "large",
 				},
 			)}
 			type={type}
