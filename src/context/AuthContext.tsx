@@ -3,8 +3,7 @@ import { createContext, Dispatch, ReactNode, useReducer } from "react";
 
 type AuthAction =
 	| { type: "LOGIN"; payload: User }
-	| { type: "REGISTER"; payload: User }
-	| { type: "LOGOUT"; payload: null };
+	| { type: "LOGOUT" };
 
 type AuthContextValue = {
 	user: User | null;

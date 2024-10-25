@@ -9,12 +9,12 @@ import {
 	Payment,
 	Savings,
 	Settings,
-	Logout
+	Logout,
 } from "@components/icons/sidebar";
 import { AppRoute } from "src/routes";
 
 type Props = {
-	name: AppRoute["icon"];
+	name: "logout" | AppRoute["icon"];
 	className?: string;
 };
 
@@ -27,7 +27,7 @@ const Icons = {
 	savings: <Savings />,
 	currencySavingsCalculator: <CurrencySavingsCalc />,
 	settings: <Settings />,
-	logout: <Logout/>
+	logout: <Logout />,
 };
 
 export const IconSidebar = ({ name, className }: Props) => {
