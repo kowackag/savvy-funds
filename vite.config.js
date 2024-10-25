@@ -8,7 +8,8 @@ export default defineConfig({
 			"@": "/src",
 			"@components": "/src/components",
 			"@services": "/src/services",
-			"@icons": "assets/icons/*",
+			"@icons": "/src/assets/icons/*",
+			"@images": "/src/assets/images/*",
 		},
 	},
 });
