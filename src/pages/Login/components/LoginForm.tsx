@@ -16,8 +16,9 @@ type Props = {
 	onSubmit: FormEventHandler;
 	errors?: FieldErrors<LoginFieldsTypes>;
 	register: UseFormRegister<LoginFieldsTypes>;
+	isPending: boolean;
 };
-export const LoginForm = ({ register, onSubmit, errors }: Props) => {
+export const LoginForm = ({ register, onSubmit, errors, isPending }: Props) => {
 	const {
 		name: emailInputName,
 		onChange: onEmailChange,
@@ -52,10 +53,10 @@ export const LoginForm = ({ register, onSubmit, errors }: Props) => {
 			<Button
 				variant={ButtonVariant.Primary}
 				size={ButtonSize.Small}
-				className="sm:order-2"
+				className="disabled:bg-primary/90 sm:order-2"
 				type="submit"
 			>
-				Sign In
+				{isPending ? "loading..." : "Sign In"}
 			</Button>
 			<hr className="w-full border-dashed text-primary opacity-40"></hr>
 			<p className="text-s">

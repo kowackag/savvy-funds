@@ -22,7 +22,7 @@ export const RegisterPage = () => {
 	} = useForm<FormInput>({ resolver: zodResolver(schema) });
 
 	const onSubmit: SubmitHandler<FormInput> = async (data) => {
-		registerUser(data);
+		await registerUser(data);
 	};
 
 	return (

@@ -33,6 +33,7 @@ export const LoginPage = () => {
 					onSubmit={handleSubmit(onSubmit)}
 					register={register}
 					errors={errors}
+					isPending={isPending}
 				/>
 				{error && (
 					<p className="absolute pt-2 text-xs font-medium text-secondary02">
