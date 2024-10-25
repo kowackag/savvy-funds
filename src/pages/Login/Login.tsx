@@ -1,8 +1,10 @@
 import { SubmitHandler, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 
-import { schema } from "./schema";
 import { LoginForm } from "./components/LoginForm";
+
+import { schema } from "./schema";
+import { useLogin } from "@hooks/useLogin";
 
 type FormInput = {
 	email: string;
@@ -10,16 +12,15 @@ type FormInput = {
 };
 
 export const LoginPage = () => {
+	const { isPending, error, loginUser } = useLogin();
 	const {
 		register,
 		handleSubmit,
 		formState: { errors },
-		reset,
 	} = useForm<FormInput>({ resolver: zodResolver(schema) });
 
-	const onSubmit: SubmitHandler<FormInput> = (data) => {
-		console.log(data);
-		reset();
+	const onSubmit: SubmitHandler<FormInput> = async (data) => {
+		await loginUser(data);
 	};
 
 	return (
@@ -33,6 +34,11 @@ export const LoginPage = () => {
 					register={register}
 					errors={errors}
 				/>
+				{error && (
+					<p className="absolute pt-2 text-xs font-medium text-secondary02">
+						{error}
+					</p>
+				)}
 			</div>
 			<div className="hidden lg:block lg:w-1/2 lg:max-w-lg">
 				<img
