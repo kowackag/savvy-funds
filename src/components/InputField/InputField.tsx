@@ -1,15 +1,11 @@
-import { ChangeEventHandler, Ref } from "react";
+import { InputHTMLAttributes, Ref } from "react";
 import clx from "classnames";
 
-type Props = {
+type Props = InputHTMLAttributes<HTMLInputElement> & {
 	label: string;
 	name: string;
-	type?: HTMLInputElement["type"];
-	value?: string | number;
 	error?: string;
-	onChange: ChangeEventHandler;
 	inputRef: Ref<HTMLInputElement>;
-	className?: string;
 };
 
 export const InputField = ({
@@ -21,6 +17,7 @@ export const InputField = ({
 	onChange,
 	inputRef,
 	className,
+	...props
 }: Props) => {
 	return (
 		<div className={clx("relative pb-3 text-neutral500", className)}>
@@ -28,6 +25,7 @@ export const InputField = ({
 				{label}
 			</label>
 			<input
+				{...props}
 				className="w-full rounded-[32px] border border-neutral30 bg-primary/5 px-6 py-3 text-s outline-none focus:border-neutral50 sm:bg-neutral00"
 				type={type}
 				id={name}
