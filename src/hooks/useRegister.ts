@@ -39,6 +39,7 @@ export const useRegister = () => {
 
 			if (context) {
 				context?.dispatch({ type: "LOGIN", payload: res.user });
+				localStorage.setItem("authUser", JSON.stringify(res.user));
 			}
 			setError(null);
 		} catch (error) {

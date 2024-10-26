@@ -1,9 +1,7 @@
 import { User } from "firebase/auth";
 import { createContext, Dispatch, ReactNode, useReducer } from "react";
 
-type AuthAction =
-	| { type: "LOGIN"; payload: User }
-	| { type: "LOGOUT" };
+type AuthAction = { type: "LOGIN"; payload: User } | { type: "LOGOUT" };
 
 type AuthContextValue = {
 	user: User | null;
@@ -37,8 +35,11 @@ export const AuthContext = createContext<AuthContextValue>({
 });
 
 export const AuthContextProvider = ({ children }: { children: ReactNode }) => {
+	const storedUser = window?.localStorage?.getItem("authUser");
+	const parsedUser = storedUser ? JSON.parse(storedUser) : null;
+
 	const [state, dispatch] = useReducer(authReducer, {
-		user: null,
+		user: parsedUser ?? null,
 	});
 
 	return (

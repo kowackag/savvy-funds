@@ -15,6 +15,7 @@ export const Sidebar = () => {
 	const handleLogout = () => {
 		if (context) {
 			context?.dispatch({ type: "LOGOUT" });
+			localStorage.removeItem("authUser");
 		}
 	};
 
