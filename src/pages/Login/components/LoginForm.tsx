@@ -79,8 +79,8 @@ export const LoginForm = ({
 				type="button"
 				onClick={() =>
 					loginUser({
-						email: "gosia_kow@gazeta.pl",
-						password: "GosiaTest123",
+						email: import.meta.env.VITE_APP_TEST_USER,
+						password: import.meta.env.VITE_APP_TEST_USER_PASSWORD,
 					})
 				}
 			>
