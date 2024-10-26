@@ -34,6 +34,7 @@ export const LoginPage = () => {
 					register={register}
 					errors={errors}
 					isPending={isPending}
+					loginUser={loginUser} // only for loging to test account
 				/>
 				{error && (
 					<p className="absolute pt-2 text-xs font-medium text-secondary02">

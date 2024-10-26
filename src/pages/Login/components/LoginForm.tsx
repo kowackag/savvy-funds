@@ -17,8 +17,15 @@ type Props = {
 	errors?: FieldErrors<LoginFieldsTypes>;
 	register: UseFormRegister<LoginFieldsTypes>;
 	isPending: boolean;
+	loginUser: (data: LoginFieldsTypes) => void; // only for loging to test account
 };
-export const LoginForm = ({ register, onSubmit, errors, isPending }: Props) => {
+export const LoginForm = ({
+	register,
+	onSubmit,
+	errors,
+	isPending,
+	loginUser,
+}: Props) => {
 	const {
 		name: emailInputName,
 		onChange: onEmailChange,
@@ -65,6 +72,20 @@ export const LoginForm = ({ register, onSubmit, errors, isPending }: Props) => {
 					Signup
 				</Link>
 			</p>
+			<Button
+				variant={ButtonVariant.Secondary}
+				size={ButtonSize.Small}
+				className="border-2 border-primary disabled:bg-primary/90 sm:order-2"
+				type="button"
+				onClick={() =>
+					loginUser({
+						email: "gosia_kow@gazeta.pl",
+						password: "GosiaTest123",
+					})
+				}
+			>
+				{isPending ? "loading..." : "Sign In one click to test account"}
+			</Button>
 		</form>
 	);
 };
