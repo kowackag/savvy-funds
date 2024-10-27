@@ -7,6 +7,7 @@ import { AuthLayout } from "./layouts/AuthLayout/AuthLayout";
 import { AuthContext } from "./context/AuthContext";
 import { appRoutes, authRoutes } from "./routes";
 import { Paths } from "./paths";
+import "./config/i18n";
 
 function App() {
 	const context = useContext(AuthContext);

@@ -1,0 +1,22 @@
+{
+	"income": "incomey",
+	"expenses": "expenses",
+	"irregularExpensesFund": "irregulr expenses funds",
+	"savings": "savings",
+	"currencySavingsCalc": "currecy savings calculator",
+	"settings": "settings",
+	"goals": "goals",
+	"login": "Sign in",
+	"logout": "Logout",
+	"register": "Signup",
+	"firstName": "First Name",
+	"lastName": "Last Name",
+	"enterPassword": "Enter Your Password",
+	"enterEmail": "Enter Your Email",
+	"welcomeBack": "Welcome Back!",
+	"welcomeBackDescription": "Sign in to your account and join us.",
+	"getStarted": "Let’s Get Started!",
+	"getStartedDescription": "Please Enter your Email Address to Start your Online Application",
+	"haveAccount": "Have an account?",
+	"notHaveAccount": "Don’t have an account?"
+}

@@ -1,0 +1,22 @@
+{
+	"income": "przychody",
+	"expenses": "wydatki",
+	"irregularExpensesFund": "Fundusz wydatków nieregularnych",
+	"savings": "oszczędności",
+	"currencySavingsCalc": "kalkulator oszczędnosci walutowych",
+	"settings": "ustawienia",
+	"goals": "cele",
+	"login": "Zaloguj",
+	"logout": "Wyloguj",
+	"register": "Zarejestruj",
+	"firstName": "Imię",
+	"lastName": "Nazwisko",
+	"enterPassword": "Wpisz hasło",
+	"enterEmail": "Wpisz email",
+	"welcomeBack": "Zapraszamy ponownie!",
+	"welcomeBackDescription": "Zaloguj sie i dołącz do nas",
+	"getStarted": "Zaczynajmy!",
+	"getStartedDescription": "Proszę podać swój adres email i korzystaj z SavvyFunds",
+	"haveAccount": "Masz konto?",
+	"notHaveAccount": "Nie posiadasz konta?"
+}
