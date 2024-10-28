@@ -1,6 +1,10 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { FirebaseError } from "firebase/app";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import {
+	getAuth,
+	onAuthStateChanged,
+	signInWithEmailAndPassword,
+} from "firebase/auth";
 
 import { firebaseApp } from "../config/firebase";
 import { AuthContext } from "../context/AuthContext";
@@ -26,11 +30,6 @@ export const useLogin = () => {
 				data.password,
 			);
 			if (!res) throw new Error("Some error during register.");
-
-			if (context) {
-				context?.dispatch({ type: "LOGIN", payload: res.user });
-				localStorage.setItem("authUser", JSON.stringify(res.user));
-			}
 			setError(null);
 		} catch (error) {
 			if (error instanceof FirebaseError) {
@@ -45,6 +44,17 @@ export const useLogin = () => {
 			setIsPending(false);
 		}
 	};
+
+	useEffect(() => {
+		onAuthStateChanged(auth, (user) => {
+			if (user) {
+				context?.dispatch({ type: "LOGIN", payload: user });
+			} else {
+				context?.dispatch({ type: "LOGOUT" });
+			}
+		});
+	}, []);
+
 	return {
 		loginUser,
 		error,
