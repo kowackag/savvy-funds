@@ -1,12 +1,15 @@
 {
-	"income": "incomey",
+	"dashboard": "dashboard",
+	"income": "income",
 	"expenses": "expenses",
-	"irregularExpensesFund": "irregulr expenses funds",
+	"irregularExpensesFunds": "irregulr expenses funds",
 	"savings": "savings",
-	"currencySavingsCalc": "currecy savings calculator",
+	"currencySavingsCalculator": "currecy savings calculator",
 	"settings": "settings",
 	"goals": "goals",
+	"payment": "payment",
 	"login": "Sign in",
+	"loginTestAccount": "Sign In one click to test account",
 	"logout": "Logout",
 	"register": "Signup",
 	"firstName": "First Name",
@@ -18,5 +21,13 @@
 	"getStarted": "Let’s Get Started!",
 	"getStartedDescription": "Please Enter your Email Address to Start your Online Application",
 	"haveAccount": "Have an account?",
-	"notHaveAccount": "Don’t have an account?"
+	"notHaveAccount": "Don’t have an account?",
+	"loading": "loading",
+	"invalidCredential": "The credential used to authenticate are not valid.",
+	"someErrorLoging": "Some error during loging. Try again later.",
+	"someErrorRegister": "Some error during register. Try again later.",
+	"emailInUse": "The account already exists for that email.",
+	"weakPassword": "The password provided is too weak.",
+	"invalidEmail": "Invalid email address",
+	"invalidPassword": "Invalid password"
 }

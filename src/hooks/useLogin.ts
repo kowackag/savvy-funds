@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import { FirebaseError } from "firebase/app";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { useTranslation } from "react-i18next";
 
 import { firebaseApp } from "../config/firebase";
 import { AuthContext } from "../context/AuthContext";
@@ -15,6 +16,8 @@ export const useLogin = () => {
 	const [isPending, setIsPending] = useState<boolean>(false);
 	const context = useContext(AuthContext);
 
+	const { t } = useTranslation();
+
 	const auth = getAuth(firebaseApp);
 	const loginUser = async (data: UserData) => {
 		setIsPending(true);
@@ -25,7 +28,7 @@ export const useLogin = () => {
 				data.email,
 				data.password,
 			);
-			if (!res) throw new Error("Some error during register.");
+			if (!res) throw new Error("someErrorLoging");
 
 			if (context) {
 				context?.dispatch({ type: "LOGIN", payload: res.user });
@@ -34,12 +37,11 @@ export const useLogin = () => {
 			setError(null);
 		} catch (error) {
 			if (error instanceof FirebaseError) {
-				console.log(error.code);
 				if (error.code.includes("invalid-credential")) {
-					return setError("The credential used to authenticate are not valid.");
+					return setError(t("invalidCredential"));
 				}
 
-				setError("Some error during loging. Try again later.");
+				setError(t("someErrorLoging"));
 			}
 		} finally {
 			setIsPending(false);

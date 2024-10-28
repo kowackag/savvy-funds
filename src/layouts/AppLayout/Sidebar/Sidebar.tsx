@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import { NavLink } from "react-router-dom";
 import clx from "classnames";
+import { useTranslation } from "react-i18next";
 
 import { IconSidebar } from "../IconSidebar/IconSidebar";
 import { ArrowRight } from "@components/icons/ArrowRight";
@@ -12,6 +13,8 @@ import { AuthContext } from "../../../context/AuthContext";
 export const Sidebar = () => {
 	const [isOpen, setISOpen] = useState<boolean>(true);
 	const context = useContext(AuthContext);
+	const { t } = useTranslation();
+
 	const handleLogout = () => {
 		if (context) {
 			context?.dispatch({ type: "LOGOUT" });
@@ -85,7 +88,7 @@ export const Sidebar = () => {
 											},
 										)}
 									>
-										{title}
+										{t(title)}
 									</p>
 								</NavLink>
 							</li>
@@ -107,7 +110,7 @@ export const Sidebar = () => {
 								["sm:hidden"]: !isOpen,
 							})}
 						>
-							Logout
+							{t("logout")}
 						</p>
 					</button>
 				</li>

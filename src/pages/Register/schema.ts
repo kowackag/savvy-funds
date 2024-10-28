@@ -5,7 +5,7 @@ export const schema = z.object({
 		.string()
 		.min(3, { message: "Name must contain at least 3 characters" }),
 	lastName: z.string(),
-	email: z.string().trim().email({ message: "Invalid email address" }),
+	email: z.string().trim().email({ message: "invalidEmail" }),
 	password: z
 		.string()
 		.trim()
