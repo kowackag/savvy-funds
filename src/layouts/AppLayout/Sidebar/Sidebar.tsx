@@ -1,25 +1,24 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import clx from "classnames";
 import { useTranslation } from "react-i18next";
+import { getAuth, signOut } from "firebase/auth";
 
 import { IconSidebar } from "../IconSidebar/IconSidebar";
 import { ArrowRight } from "@components/icons/ArrowRight";
 import { Logo } from "@components/icons/Logo";
 
 import { appRoutes } from "./../../../routes";
-import { AuthContext } from "../../../context/AuthContext";
+import { firebaseApp } from "./../../../config/firebase";
 
 export const Sidebar = () => {
 	const [isOpen, setISOpen] = useState<boolean>(true);
-	const context = useContext(AuthContext);
+
 	const { t } = useTranslation();
+	const auth = getAuth(firebaseApp);
 
 	const handleLogout = () => {
-		if (context) {
-			context?.dispatch({ type: "LOGOUT" });
-			localStorage.removeItem("authUser");
-		}
+		signOut(auth);
 	};
 
 	return (

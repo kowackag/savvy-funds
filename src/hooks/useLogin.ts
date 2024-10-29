@@ -1,10 +1,15 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { FirebaseError } from "firebase/app";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { useTranslation } from "react-i18next";
+import {
+	getAuth,
+	onAuthStateChanged,
+	signInWithEmailAndPassword,
+} from "firebase/auth";
 
-import { firebaseApp } from "../config/firebase";
+import { db, firebaseApp } from "../config/firebase";
 import { AuthContext } from "../context/AuthContext";
+import { doc, getDoc } from "firebase/firestore";
 
 type UserData = {
 	email: string;
@@ -28,12 +33,7 @@ export const useLogin = () => {
 				data.email,
 				data.password,
 			);
-			if (!res) throw new Error("someErrorLoging");
-
-			if (context) {
-				context?.dispatch({ type: "LOGIN", payload: res.user });
-				localStorage.setItem("authUser", JSON.stringify(res.user));
-			}
+			if (!res) throw new Error("Some error during register.");
 			setError(null);
 		} catch (error) {
 			if (error instanceof FirebaseError) {
@@ -47,6 +47,20 @@ export const useLogin = () => {
 			setIsPending(false);
 		}
 	};
+
+	useEffect(() => {
+		onAuthStateChanged(auth, async (user) => {
+			if (user) {
+				const docRef = doc(db, "User", user.uid);
+				const docSnap = await getDoc(docRef);
+				if (docSnap.exists())
+					context?.dispatch({ type: "LOGIN", payload: docSnap.data() });
+			} else {
+				context?.dispatch({ type: "LOGOUT" });
+			}
+		});
+	}, []);
+
 	return {
 		loginUser,
 		error,

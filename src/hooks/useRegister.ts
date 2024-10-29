@@ -1,14 +1,11 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { FirebaseError } from "firebase/app";
-import {
-	createUserWithEmailAndPassword,
-	getAuth,
-	updateProfile,
-} from "firebase/auth";
+import { doc, setDoc } from "firebase/firestore";
 
-import { firebaseApp } from "./../config/firebase";
-import { AuthContext } from "../../src/context/AuthContext";
 import { useTranslation } from "react-i18next";
+import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
+
+import { db, firebaseApp } from "./../config/firebase";
 
 type UserData = {
 	firstName: string;
@@ -20,7 +17,6 @@ type UserData = {
 export const useRegister = () => {
 	const [error, setError] = useState<string | null>(null);
 	const [isPending, setIsPending] = useState<boolean>(false);
-	const context = useContext(AuthContext);
 
 	const { t } = useTranslation();
 
@@ -36,14 +32,16 @@ export const useRegister = () => {
 			);
 			if (!res) throw new Error("Some error during register.");
 
-			await updateProfile(res.user, {
-				displayName: `${data.firstName} ${data.lastName}`,
-			});
+			const userRef = doc(db, "User", res.user.uid);
 
-			if (context) {
-				context?.dispatch({ type: "LOGIN", payload: res.user });
-				localStorage.setItem("authUser", JSON.stringify(res.user));
-			}
+			setDoc(userRef, {
+				name: data.firstName,
+				lastName: data.lastName,
+				displayName: `${data.firstName} ${data.lastName}`,
+				email: data.email,
+				password: data.password,
+				id: res.user.uid,
+			});
 			setError(null);
 		} catch (error) {
 			if (error instanceof FirebaseError) {
@@ -60,6 +58,7 @@ export const useRegister = () => {
 			setIsPending(false);
 		}
 	};
+
 	return {
 		registerUser,
 		error,

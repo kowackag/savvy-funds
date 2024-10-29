@@ -1,15 +1,15 @@
-import { User } from "firebase/auth";
+import { DocumentData } from "firebase/firestore";
 import { createContext, Dispatch, ReactNode, useReducer } from "react";
 
-type AuthAction = { type: "LOGIN"; payload: User } | { type: "LOGOUT" };
+type AuthAction = { type: "LOGIN"; payload: DocumentData } | { type: "LOGOUT" };
 
 type AuthContextValue = {
-	user: User | null;
+	user: DocumentData | null;
 	dispatch: Dispatch<AuthAction>;
 };
 
 type AuthState = {
-	user: User | null;
+	user: DocumentData | null;
 };
 
 export const authReducer = (state: AuthState, action: AuthAction) => {
