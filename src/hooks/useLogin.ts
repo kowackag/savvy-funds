@@ -6,8 +6,9 @@ import {
 	signInWithEmailAndPassword,
 } from "firebase/auth";
 
-import { firebaseApp } from "../config/firebase";
+import { db, firebaseApp } from "../config/firebase";
 import { AuthContext } from "../context/AuthContext";
+import { doc, getDoc } from "firebase/firestore";
 
 type UserData = {
 	email: string;
@@ -46,9 +47,12 @@ export const useLogin = () => {
 	};
 
 	useEffect(() => {
-		onAuthStateChanged(auth, (user) => {
+		onAuthStateChanged(auth, async (user) => {
 			if (user) {
-				context?.dispatch({ type: "LOGIN", payload: user });
+				const docRef = doc(db, "User", user.uid);
+				const docSnap = await getDoc(docRef);
+				if (docSnap.exists())
+					context?.dispatch({ type: "LOGIN", payload: docSnap.data() });
 			} else {
 				context?.dispatch({ type: "LOGOUT" });
 			}
