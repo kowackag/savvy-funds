@@ -35,11 +35,8 @@ export const AuthContext = createContext<AuthContextValue>({
 });
 
 export const AuthContextProvider = ({ children }: { children: ReactNode }) => {
-	const storedUser = window?.localStorage?.getItem("authUser");
-	const parsedUser = storedUser ? JSON.parse(storedUser) : null;
-
 	const [state, dispatch] = useReducer(authReducer, {
-		user: parsedUser ?? null,
+		user: null,
 	});
 
 	return (
