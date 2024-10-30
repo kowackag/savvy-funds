@@ -29,5 +29,8 @@
 	"emailInUse": "Podany email jest juz zarejestrowany",
 	"weakPassword": "Zbyt słabe hasło",
 	"invalidEmail": "Błędny adres email",
-	"invalidPassword": "Błędne hasło"
+	"invalidPassword": "Błędne hasło",
+	"nameAtLeast3Characters": "Imię musi składac się z przynajmniej 3 znaków",
+	"passwordAtLeast8Characters": "Hasło musi składac się z przynajmniej 8 znaków",
+	"passwordOnlyBothLetterNumber": "Hasło musi się składac zarówno (i tylko) z liczb i liter"
 }
