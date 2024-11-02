@@ -11,9 +11,9 @@ export const Topbar = () => {
 					48x48
 				</span>
 				<p className="text-l font-medium text-neutral700">
-					{context?.user?.displayName}
+					{`${context?.user?.firstName} ${context?.user?.lastName}`}
 				</p>
 			</div>
-		</div> 
+		</div>
 	);
 };

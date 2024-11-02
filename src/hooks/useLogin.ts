@@ -1,14 +1,10 @@
 import { useContext, useEffect, useState } from "react";
 import { FirebaseError } from "firebase/app";
-import {
-	getAuth,
-	onAuthStateChanged,
-	signInWithEmailAndPassword,
-} from "firebase/auth";
-
-import { db, firebaseApp } from "../config/firebase";
-import { AuthContext } from "../context/AuthContext";
+import { onAuthStateChanged, signInWithEmailAndPassword } from "firebase/auth";
 import { doc, getDoc } from "firebase/firestore";
+
+import { auth, db } from "../config/firebase";
+import { AuthContext } from "../context/AuthContext";
 
 type UserData = {
 	email: string;
@@ -20,7 +16,6 @@ export const useLogin = () => {
 	const [isPending, setIsPending] = useState<boolean>(false);
 	const context = useContext(AuthContext);
 
-	const auth = getAuth(firebaseApp);
 	const loginUser = async (data: UserData) => {
 		setIsPending(true);
 		setError(null);
