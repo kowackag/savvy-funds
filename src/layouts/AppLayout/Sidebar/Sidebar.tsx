@@ -2,20 +2,19 @@ import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import clx from "classnames";
 import { useTranslation } from "react-i18next";
-import { getAuth, signOut } from "firebase/auth";
+import { signOut } from "firebase/auth";
 
 import { IconSidebar } from "../IconSidebar/IconSidebar";
 import { ArrowRight } from "@components/icons/ArrowRight";
 import { Logo } from "@components/icons/Logo";
 
 import { appRoutes } from "./../../../routes";
-import { firebaseApp } from "./../../../config/firebase";
+import { auth } from "./../../../config/firebase";
 
 export const Sidebar = () => {
 	const [isOpen, setISOpen] = useState<boolean>(true);
 
 	const { t } = useTranslation();
-	const auth = getAuth(firebaseApp);
 
 	const handleLogout = () => {
 		signOut(auth);

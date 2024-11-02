@@ -1,13 +1,9 @@
 import { useContext, useEffect, useState } from "react";
 import { FirebaseError } from "firebase/app";
 import { useTranslation } from "react-i18next";
-import {
-	getAuth,
-	onAuthStateChanged,
-	signInWithEmailAndPassword,
-} from "firebase/auth";
+import { onAuthStateChanged, signInWithEmailAndPassword } from "firebase/auth";
 
-import { db, firebaseApp } from "../config/firebase";
+import { db, auth } from "../config/firebase";
 import { AuthContext } from "../context/AuthContext";
 import { doc, getDoc } from "firebase/firestore";
 
@@ -23,7 +19,6 @@ export const useLogin = () => {
 
 	const { t } = useTranslation();
 
-	const auth = getAuth(firebaseApp);
 	const loginUser = async (data: UserData) => {
 		setIsPending(true);
 		setError(null);
