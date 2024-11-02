@@ -1,5 +1,6 @@
 import { useContext, useEffect } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 import { AppLayout } from "./layouts/AppLayout/AppLayout";
 import { AuthLayout } from "./layouts/AuthLayout/AuthLayout";
@@ -8,12 +9,13 @@ import { AuthContext } from "./context/AuthContext";
 import { appRoutes, authRoutes } from "./routes";
 import { Paths } from "./paths";
 import "./config/i18n";
-import { useTranslation } from "react-i18next";
 
 function App() {
 	const context = useContext(AuthContext);
 	const { i18n } = useTranslation();
-	useEffect(()=>{	i18n.changeLanguage("pl");},[])
+	useEffect(() => {
+		i18n.changeLanguage("pl");
+	}, []);
 
 	return (
 		<Routes>
