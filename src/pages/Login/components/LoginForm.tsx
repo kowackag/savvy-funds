@@ -16,8 +16,16 @@ type Props = {
 	onSubmit: FormEventHandler;
 	errors?: FieldErrors<LoginFieldsTypes>;
 	register: UseFormRegister<LoginFieldsTypes>;
+	isPending: boolean;
+	loginUser: (data: LoginFieldsTypes) => void; // only for loging to test account
 };
-export const LoginForm = ({ register, onSubmit, errors }: Props) => {
+export const LoginForm = ({
+	register,
+	onSubmit,
+	errors,
+	isPending,
+	loginUser,
+}: Props) => {
 	const {
 		name: emailInputName,
 		onChange: onEmailChange,
@@ -52,10 +60,10 @@ export const LoginForm = ({ register, onSubmit, errors }: Props) => {
 			<Button
 				variant={ButtonVariant.Primary}
 				size={ButtonSize.Small}
-				className="sm:order-2"
+				className="disabled:bg-primary/90 sm:order-2"
 				type="submit"
 			>
-				Sign In
+				{isPending ? "loading..." : "Sign In"}
 			</Button>
 			<hr className="w-full border-dashed text-primary opacity-40"></hr>
 			<p className="text-s">
@@ -64,6 +72,20 @@ export const LoginForm = ({ register, onSubmit, errors }: Props) => {
 					Signup
 				</Link>
 			</p>
+			<Button
+				variant={ButtonVariant.Secondary}
+				size={ButtonSize.Small}
+				className="border-2 border-primary disabled:bg-primary/90 sm:order-2"
+				type="button"
+				onClick={() =>
+					loginUser({
+						email: import.meta.env.VITE_APP_TEST_USER,
+						password: import.meta.env.VITE_APP_TEST_USER_PASSWORD,
+					})
+				}
+			>
+				{isPending ? "loading..." : "Sign In one click to test account"}
+			</Button>
 		</form>
 	);
 };

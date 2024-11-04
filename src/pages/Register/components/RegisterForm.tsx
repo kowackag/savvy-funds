@@ -18,8 +18,14 @@ type Props = {
 	onSubmit: FormEventHandler;
 	errors?: FieldErrors<RegisterFieldsTypes>;
 	register: UseFormRegister<RegisterFieldsTypes>;
+	isPending: boolean;
 };
-export const RegisterForm = ({ register, onSubmit, errors }: Props) => {
+export const RegisterForm = ({
+	register,
+	onSubmit,
+	errors,
+	isPending,
+}: Props) => {
 	const {
 		name: firstNameInputName,
 		onChange: onFirstNameChange,
@@ -82,10 +88,11 @@ export const RegisterForm = ({ register, onSubmit, errors }: Props) => {
 			<Button
 				variant={ButtonVariant.Primary}
 				size={ButtonSize.Small}
-				className="sm:order-2"
+				className="disabled:bg-primary/90 sm:order-2"
 				type="submit"
+				disabled={isPending}
 			>
-				Sign Up
+				{isPending ? "loading..." : "Sign Up"}
 			</Button>
 			<hr className="w-full border-dashed text-primary opacity-40"></hr>
 			<p className="text-s">

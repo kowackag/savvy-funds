@@ -6,3 +6,4 @@ export * from "./Settings";
 export * from "./Goals";
 export * from "./IrregularExpFounds";
 export * from "./CurrencySavingsCalc";
+export * from "./Logout";

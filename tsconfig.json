@@ -18,10 +18,10 @@
 		"paths": {
 			"@/*": ["/src/*"],
 			"@components/*": ["src/components/*"],
-			// "@hooks/*": ["src/utils/hooks/*"],
 			"@icons/*": ["src/assets/icons/*"],
 			"@images/*": ["src/assets/images/*"],
-			"@services/*": ["src/services/*"]
+			"@services/*": ["src/services/*"],
+			"@hooks/*": ["src/hooks/*"]
 		},
 		/* Linting */
 		"strict": true,
