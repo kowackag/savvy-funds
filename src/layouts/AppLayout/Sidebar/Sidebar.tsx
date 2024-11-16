@@ -92,7 +92,7 @@ export const Sidebar = () => {
 							</li>
 						))}
 				</ul>
-				<li className="hover:bg-secondary01/5 sm:hover:bg-neutral00">
+				<div className="hover:bg-secondary01/5 sm:hover:bg-neutral00">
 					<button
 						className="flex items-center justify-center gap-2 text-neutral500 sm:justify-start"
 						onClick={handleLogout}
@@ -111,7 +111,7 @@ export const Sidebar = () => {
 							{t("logout")}
 						</p>
 					</button>
-				</li>
+				</div>
 			</div>
 		</div>
 	);
