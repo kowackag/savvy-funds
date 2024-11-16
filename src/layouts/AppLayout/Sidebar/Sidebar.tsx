@@ -46,9 +46,9 @@ export const Sidebar = () => {
 				</h1>
 			</div>
 
-			<ul className="flex grow flex-wrap items-start justify-stretch border-t border-t-primary/10 sm:flex-col sm:items-stretch sm:gap-4">
+			<div className="flex grow flex-wrap items-start justify-stretch border-t border-t-primary/10 sm:flex-col sm:items-stretch sm:gap-4">
 				<hr className="hidden border-dashed text-primary opacity-40 sm:inline-block"></hr>
-				<div className="flex grow sm:flex-col sm:items-stretch sm:gap-3">
+				<ul className="flex grow sm:flex-col sm:items-stretch sm:gap-3">
 					{appRoutes
 						.filter(
 							({ layout, title }) => layout === "app" && title !== "logout",
@@ -91,7 +91,7 @@ export const Sidebar = () => {
 								</NavLink>
 							</li>
 						))}
-				</div>
+				</ul>
 				<li className="hover:bg-secondary01/5 sm:hover:bg-neutral00">
 					<button
 						className="flex items-center justify-center gap-2 text-neutral500 sm:justify-start"
@@ -112,7 +112,7 @@ export const Sidebar = () => {
 						</p>
 					</button>
 				</li>
-			</ul>
+			</div>
 		</div>
 	);
 };
