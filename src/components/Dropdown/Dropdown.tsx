@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import clx from "classnames";
 
 import { ChevronDown } from "@components/icons/ChevronDown";
+import { useClickOutside } from "@hooks/useClickOutside";
 
 type DropdownItem = {
 	id: string;
@@ -26,6 +27,11 @@ export const Dropdown = ({ selected, onSelect, items, className }: Props) => {
 	);
 	const dropdownRef = useRef<HTMLDivElement>(null);
 
+	useClickOutside({
+		ref: dropdownRef,
+		handler: () => setIsOpen(false),
+	});
+
 	const handleChange = (item: DropdownItem) => {
 		setSelectedItem(item);
 		onSelect(item.id);
@@ -40,21 +46,6 @@ export const Dropdown = ({ selected, onSelect, items, className }: Props) => {
 			setSelectedItem(undefined);
 		}
 	}, [selected, items]);
-
-	useEffect(() => {
-		const handleClickOutside = (event: MouseEvent) => {
-			if (
-				dropdownRef.current &&
-				!dropdownRef.current.contains(event.target as Node)
-			) {
-				setIsOpen(false);
-			}
-		};
-		document.addEventListener("mousedown", handleClickOutside);
-		return () => {
-			document.removeEventListener("mousedown", handleClickOutside);
-		};
-	}, [dropdownRef]);
 
 	const handleKeyDownToSelect = (
 		e: React.KeyboardEvent<HTMLLIElement>,
