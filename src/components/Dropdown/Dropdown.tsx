@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import clx from "classnames";
 
 import { ChevronDown } from "@components/icons/ChevronDown";
+import { useClickOutside } from "@hooks/useClickOutside";
 
 type DropdownItem = {
 	id: string;
@@ -21,40 +22,22 @@ type Props = {
 
 export const Dropdown = ({ selected, onSelect, items, className }: Props) => {
 	const [isOpen, setIsOpen] = useState<boolean>(false);
-	const [selectedItem, setSelectedItem] = useState<DropdownItem | undefined>(
-		selected ? items?.find((item) => item.id === selected) : undefined,
+
+	const [selectedItemId, setSelectedItemId] = useState<string | null>(
+		selected || null,
 	);
 	const dropdownRef = useRef<HTMLDivElement>(null);
 
+	useClickOutside({
+		ref: dropdownRef,
+		handler: () => setIsOpen(false),
+	});
+
 	const handleChange = (item: DropdownItem) => {
-		setSelectedItem(item);
+		setSelectedItemId(item.id);
 		onSelect(item.id);
 		setIsOpen(false);
 	};
-
-	useEffect(() => {
-		if (selected && items) {
-			const newSelectedItem = items.find((item) => item.id === selected);
-			newSelectedItem && setSelectedItem(newSelectedItem);
-		} else {
-			setSelectedItem(undefined);
-		}
-	}, [selected, items]);
-
-	useEffect(() => {
-		const handleClickOutside = (event: MouseEvent) => {
-			if (
-				dropdownRef.current &&
-				!dropdownRef.current.contains(event.target as Node)
-			) {
-				setIsOpen(false);
-			}
-		};
-		document.addEventListener("mousedown", handleClickOutside);
-		return () => {
-			document.removeEventListener("mousedown", handleClickOutside);
-		};
-	}, [dropdownRef]);
 
 	const handleKeyDownToSelect = (
 		e: React.KeyboardEvent<HTMLLIElement>,
@@ -63,6 +46,9 @@ export const Dropdown = ({ selected, onSelect, items, className }: Props) => {
 		e.preventDefault();
 		if (e.key === "Enter") handleChange(item);
 	};
+
+	const selectedItem =
+		items?.find((item) => item.id === selectedItemId) || null;
 
 	return (
 		<div
