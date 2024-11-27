@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { FirebaseError } from "firebase/app";
 import { doc, setDoc } from "firebase/firestore";
+import { useTranslation } from "react-i18next";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 
 import { auth, db } from "./../config/firebase";
@@ -15,6 +16,8 @@ type UserData = {
 export const useRegister = () => {
 	const [error, setError] = useState<string | null>(null);
 	const [isPending, setIsPending] = useState<boolean>(false);
+
+	const { t } = useTranslation();
 
 	const registerUser = async (data: UserData) => {
 		setIsPending(true);
@@ -40,13 +43,13 @@ export const useRegister = () => {
 		} catch (error) {
 			if (error instanceof FirebaseError) {
 				if (error.code.includes("email-already-in-use")) {
-					return setError("The account already exists for that email.");
+					return setError(t("emailInUse"));
 				}
 
 				if (error.code.includes("auth/weak-password")) {
-					return setError("The password provided is too weak.");
+					return setError(t("weakPassword"));
 				}
-				setError("Some error during register. Try again later.");
+				setError(t("someErrorRegister"));
 			}
 		} finally {
 			setIsPending(false);

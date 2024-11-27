@@ -1,10 +1,11 @@
 import { useContext, useEffect, useState } from "react";
 import { FirebaseError } from "firebase/app";
+import { useTranslation } from "react-i18next";
 import { onAuthStateChanged, signInWithEmailAndPassword } from "firebase/auth";
-import { doc, getDoc } from "firebase/firestore";
 
-import { auth, db } from "../config/firebase";
+import { db, auth } from "../config/firebase";
 import { AuthContext } from "../context/AuthContext";
+import { doc, getDoc } from "firebase/firestore";
 
 type UserData = {
 	email: string;
@@ -15,6 +16,8 @@ export const useLogin = () => {
 	const [error, setError] = useState<string | null>(null);
 	const [isPending, setIsPending] = useState<boolean>(false);
 	const context = useContext(AuthContext);
+
+	const { t } = useTranslation();
 
 	const loginUser = async (data: UserData) => {
 		setIsPending(true);
@@ -29,12 +32,11 @@ export const useLogin = () => {
 			setError(null);
 		} catch (error) {
 			if (error instanceof FirebaseError) {
-				console.log(error.code);
 				if (error.code.includes("invalid-credential")) {
-					return setError("The credential used to authenticate are not valid.");
+					return setError(t("invalidCredential"));
 				}
 
-				setError("Some error during loging. Try again later.");
+				setError(t("someErrorLoging"));
 			}
 		} finally {
 			setIsPending(false);

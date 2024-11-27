@@ -1,5 +1,6 @@
 import { InputHTMLAttributes, Ref } from "react";
 import clx from "classnames";
+import { useTranslation } from "react-i18next";
 
 type Props = InputHTMLAttributes<HTMLInputElement> & {
 	label: string;
@@ -19,6 +20,8 @@ export const InputField = ({
 	className,
 	...props
 }: Props) => {
+	const { t } = useTranslation();
+
 	return (
 		<div className={clx("relative pb-3 text-neutral500", className)}>
 			<label className="mb-3 block text-l font-medium" htmlFor={name}>
@@ -36,7 +39,7 @@ export const InputField = ({
 			/>
 			{error && (
 				<p className="absolute right-0 text-xs font-medium text-secondary02">
-					{error}
+					{t(error)}
 				</p>
 			)}
 		</div>

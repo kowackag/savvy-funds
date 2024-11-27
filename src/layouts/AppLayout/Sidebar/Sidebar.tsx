@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import clx from "classnames";
+import { useTranslation } from "react-i18next";
 import { signOut } from "firebase/auth";
 
 import { IconSidebar } from "../IconSidebar/IconSidebar";
@@ -12,6 +13,8 @@ import { auth } from "./../../../config/firebase";
 
 export const Sidebar = () => {
 	const [isOpen, setISOpen] = useState<boolean>(true);
+
+	const { t } = useTranslation();
 
 	const handleLogout = () => {
 		signOut(auth);
@@ -43,9 +46,9 @@ export const Sidebar = () => {
 				</h1>
 			</div>
 
-			<ul className="flex grow flex-wrap items-start justify-stretch border-t border-t-primary/10 sm:flex-col sm:items-stretch sm:gap-4">
+			<div className="flex grow flex-wrap items-start justify-stretch border-t border-t-primary/10 sm:flex-col sm:items-stretch sm:gap-4">
 				<hr className="hidden border-dashed text-primary opacity-40 sm:inline-block"></hr>
-				<div className="flex grow sm:flex-col sm:items-stretch sm:gap-3">
+				<ul className="flex grow sm:flex-col sm:items-stretch sm:gap-3">
 					{appRoutes
 						.filter(
 							({ layout, title }) => layout === "app" && title !== "logout",
@@ -83,13 +86,13 @@ export const Sidebar = () => {
 											},
 										)}
 									>
-										{title}
+										{t(title)}
 									</p>
 								</NavLink>
 							</li>
 						))}
-				</div>
-				<li className="hover:bg-secondary01/5 sm:hover:bg-neutral00">
+				</ul>
+				<div className="hover:bg-secondary01/5 sm:hover:bg-neutral00">
 					<button
 						className="flex items-center justify-center gap-2 text-neutral500 sm:justify-start"
 						onClick={handleLogout}
@@ -105,11 +108,11 @@ export const Sidebar = () => {
 								["sm:hidden"]: !isOpen,
 							})}
 						>
-							Logout
+							{t("logout")}
 						</p>
 					</button>
-				</li>
-			</ul>
+				</div>
+			</div>
 		</div>
 	);
 };

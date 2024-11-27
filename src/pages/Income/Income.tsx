@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { IncomeType, incomeServices } from "../../services/income";
 
 export const Income = () => {
-	const [allIncome, setAllIncome] = useState<IncomeType[]>([]);
+	const [_allIncome, setAllIncome] = useState<IncomeType[]>([]);
 	const [error, setError] = useState<string | null>(null);
 
 	useEffect(() => {

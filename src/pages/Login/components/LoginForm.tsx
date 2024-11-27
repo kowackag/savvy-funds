@@ -1,6 +1,7 @@
 import { FormEventHandler } from "react";
 import { FieldErrors, UseFormRegister } from "react-hook-form";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 import { Button, ButtonSize, ButtonVariant } from "@components/Button/Button";
 import { InputField } from "@components/InputField/InputField";
@@ -37,12 +38,14 @@ export const LoginForm = ({
 		ref: passwordInputRef,
 	} = register("password");
 
+	const { t } = useTranslation();
+
 	return (
 		<form onSubmit={onSubmit} className="flex flex-col gap-5">
 			<InputField
 				onChange={onEmailChange}
 				name={emailInputName}
-				label="Enter Your Email"
+				label={t("enterEmail")}
 				error={errors?.email?.message}
 				type="email"
 				inputRef={emailInputRef}
@@ -51,7 +54,7 @@ export const LoginForm = ({
 				<InputField
 					onChange={onPasswordChange}
 					name={passwordInputName}
-					label="Enter Your Password"
+					label={t("enterPassword")}
 					error={errors?.password?.message}
 					inputRef={passwordInputRef}
 					type="password"
@@ -63,13 +66,13 @@ export const LoginForm = ({
 				className="disabled:bg-primary/90 sm:order-2"
 				type="submit"
 			>
-				{isPending ? "loading..." : "Sign In"}
+				{isPending ? t("loading") : t("login")}
 			</Button>
 			<hr className="w-full border-dashed text-primary opacity-40"></hr>
 			<p className="text-s">
-				Don’t have an account?{" "}
+				{t("notHaveAccount")}{" "}
 				<Link to={Paths.REGISTER} className="font-semibold text-primary">
-					Signup
+					{t("register")}
 				</Link>
 			</p>
 			<Button
@@ -84,7 +87,7 @@ export const LoginForm = ({
 					})
 				}
 			>
-				{isPending ? "loading..." : "Sign In one click to test account"}
+				{isPending ? t("loading") : t("loginTestAccount")}
 			</Button>
 		</form>
 	);

@@ -19,10 +19,10 @@ type TitleRoute =
 	| "dashboard"
 	| "income"
 	| "payment"
-	| "irregular expenses funds"
+	| "irregularExpensesFunds"
 	| "goals"
 	| "savings"
-	| "currency savings calculator"
+	| "currencySavingsCalculator"
 	| "settings"
 	| "Login"
 	| "Register";
@@ -67,7 +67,7 @@ export const routes: Route[] = [
 	{
 		path: Paths.IRREGULAR_EXPENSES,
 		element: <IrregularExpensesFund />,
-		title: "irregular expenses funds",
+		title: "irregularExpensesFunds",
 		isProtected: true,
 		layout: "app",
 		icon: "irregularExpensesFunds",
@@ -91,7 +91,7 @@ export const routes: Route[] = [
 	{
 		path: Paths.CURRENCY,
 		element: <CurrencySavingsCalculator />,
-		title: "currency savings calculator",
+		title: "currencySavingsCalculator",
 		isProtected: true,
 		layout: "app",
 		icon: "currencySavingsCalculator",

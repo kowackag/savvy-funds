@@ -6,6 +6,7 @@ import { Button, ButtonSize, ButtonVariant } from "@components/Button/Button";
 import { InputField } from "@components/InputField/InputField";
 
 import { Paths } from "./../../../paths";
+import { useTranslation } from "react-i18next";
 
 type RegisterFieldsTypes = {
 	firstName: string;
@@ -47,6 +48,8 @@ export const RegisterForm = ({
 		ref: passwordInputRef,
 	} = register("password");
 
+	const { t } = useTranslation();
+
 	return (
 		<form onSubmit={onSubmit} className="flex flex-col gap-5">
 			<div className="flex flex-col justify-stretch gap-5 md:flex-row">
@@ -54,7 +57,7 @@ export const RegisterForm = ({
 					className="w-full"
 					onChange={onFirstNameChange}
 					name={firstNameInputName}
-					label="First Name"
+					label={t("firstName")}
 					error={errors?.firstName?.message}
 					inputRef={firstNameInputRef}
 				/>
@@ -62,7 +65,7 @@ export const RegisterForm = ({
 					className="w-full"
 					onChange={onLastNameChange}
 					name={lastNameInputName}
-					label="Last Name"
+					label={t("lastName")}
 					error={errors?.lastName?.message}
 					inputRef={lastNameInputRef}
 				/>
@@ -70,7 +73,7 @@ export const RegisterForm = ({
 			<InputField
 				onChange={onEmailChange}
 				name={emailInputName}
-				label="Enter Your Email"
+				label={t("enterEmail")}
 				error={errors?.email?.message}
 				type="email"
 				inputRef={emailInputRef}
@@ -79,7 +82,7 @@ export const RegisterForm = ({
 				<InputField
 					onChange={onPasswordChange}
 					name={passwordInputName}
-					label="Enter Your Password"
+					label={t("enterPassword")}
 					error={errors?.password?.message}
 					inputRef={passwordInputRef}
 					type="password"
@@ -92,13 +95,13 @@ export const RegisterForm = ({
 				type="submit"
 				disabled={isPending}
 			>
-				{isPending ? "loading..." : "Sign Up"}
+				{isPending ? t("loading") : t("register")}
 			</Button>
 			<hr className="w-full border-dashed text-primary opacity-40"></hr>
 			<p className="text-s">
-				Have an account?{" "}
+				{t("haveAccount")}{" "}
 				<Link to={Paths.LOGIN} className="font-semibold text-primary">
-					Sign In
+					{t("login")}
 				</Link>
 			</p>
 		</form>
