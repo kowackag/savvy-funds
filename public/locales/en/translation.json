@@ -4,7 +4,7 @@
 	"expenses": "expenses",
 	"irregularExpensesFunds": "irregulr expenses funds",
 	"savings": "savings",
-	"currencySavingsCalculator": "currecy savings calculator",
+	"currencySavingsCalculator": "currency savings calculator",
 	"settings": "settings",
 	"goals": "goals",
 	"payment": "payment",
@@ -32,5 +32,8 @@
 	"invalidPassword": "Invalid password",
 	"nameAtLeast3Characters": "Name must contain at least 3 characters",
 	"passwordAtLeast8Characters": "Password must contain at least 8 characters",
-	"passwordOnlyBothLetterNumber":"Password must contain only and both a letter and a number"
+	"passwordOnlyBothLetterNumber":"Password must contain only and both a letter and a number",
+	"edit": "edit",
+	"delete":"delete",
+	"addCurrency": "Add Currency"
 }

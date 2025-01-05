@@ -7,9 +7,14 @@ type Props = {
 	title: string;
 	children: ReactNode;
 	buttonTitle?: string;
-	onClick?: any //TODO
+	onClick: MouseEventHandler<HTMLButtonElement>;
 };
-export const PageContainer = ({ title, children, buttonTitle, onClick }: Props) => {
+export const PageContainer = ({
+	title,
+	children,
+	buttonTitle,
+	onClick,
+}: Props) => {
 	return (
 		<section className="px-5 py-6 lg:px-6 lg:py-9 ">
 			<div className="flex items-center justify-between pb-6 capitalize lg:pb-9">
@@ -17,7 +22,7 @@ export const PageContainer = ({ title, children, buttonTitle, onClick }: Props) 
 					{title}
 				</h2>
 				<Button
-                    onClick={onClick}
+					onClick={onClick}
 					variant={ButtonVariant.Primary}
 					size={ButtonSize.Medium}
 					className="flex items-center gap-3 px-4"
