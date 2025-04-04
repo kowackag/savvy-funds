@@ -23,7 +23,7 @@ export const Sidebar = () => {
 	return (
 		<div
 			className={clx(
-				"relative flex flex-col items-stretch sm:px-6 sm:py-6 sm:pb-4 md:px-8",
+				"relative flex flex-col items-stretch sm:px-4 sm:py-4 sm:pb-4 md:px-8",
 				{
 					["sm:w-72"]: isOpen,
 				},
@@ -80,7 +80,7 @@ export const Sidebar = () => {
 									/>
 									<p
 										className={clx(
-											"hidden text-m  font-medium capitalize sm:block",
+											"hidden text-s font-medium capitalize sm:block",
 											{
 												["sm:hidden"]: !isOpen,
 											},
@@ -104,7 +104,7 @@ export const Sidebar = () => {
 							})}
 						/>
 						<p
-							className={clx("hidden text-m  font-medium capitalize sm:block", {
+							className={clx("hidden text-m font-medium capitalize sm:block", {
 								["sm:hidden"]: !isOpen,
 							})}
 						>
